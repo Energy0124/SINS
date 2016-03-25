@@ -1,0 +1,7 @@
+md-content.md-padding(ng-controller='UsageController as vm', layout='row')
+  div(flex='')
+    nvd3(options='vm.chartOptions', data='vm.ramChartData')
+    h4.donut-chart-title RAM
+  div(flex='')
+    nvd3(options='vm.chartOptions', data='vm.storageChartData')
+    h4.donut-chart-title Storage

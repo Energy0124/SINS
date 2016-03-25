@@ -1,0 +1,7 @@
+md-bottom-sheet.md-list.md-has-header
+  md-subheader Select action
+  md-list
+    md-list-item(ng-repeat='action in vm.actions')
+      md-button.md-list-item-content(ng-click='vm.performAction(action)', ng-href='{{action.url}}', target='_blank')
+        i.material-icons {{action.icon}}
+        span.share-label {{action.name}}

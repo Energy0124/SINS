@@ -1,0 +1,7 @@
+div(ng-controller='PerformanceController as vm')
+  md-content.options(ng-show='$showOptions')
+    md-radio-group(ng-model='vm.performancePeriod', ng-change='vm.changePeriod()')
+      md-radio-button(value='week') Last week
+      md-radio-button(value='month') Last month
+  md-content.md-padding
+    nvd3(options='vm.chartOptions', data='vm.performanceChartData')

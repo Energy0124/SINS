@@ -1,0 +1,16 @@
+md-content.md-padding(ng-controller='TodoController as vm')
+  div(layout='row')
+    h4(flex='82') {{vm.remaining()}} of {{vm.todos.length}} remaining
+    md-button.md-primary(ng-click='vm.toggleAll()')
+      | Toggle All
+  md-checkbox(ng-repeat='todo in vm.todos', ng-model='todo.done')
+    | {{todo.text}}
+  form(ng-submit='vm.addTodo($event)', novalidate='', name='tasksForm')
+    div(layout='row', flex='')
+      md-input-container(flex='', ng-class="{'md-input-invalid':tasksForm.taskText.$error.required && tasksForm.$submitted}")
+        label Write some todo task here...
+        input(ng-model='vm.todoText', name='taskText', required='')
+      md-button.md-fab.md-wayrn.md-mini
+        i.material-icons add
+    md-button.md-primary(ng-click='vm.archive($event)')
+      | Remove completed

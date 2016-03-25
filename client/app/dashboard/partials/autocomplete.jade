@@ -1,0 +1,14 @@
+div(ng-controller='SearchController as vm')
+  md-content.options(ng-show='$showOptions')
+    md-radio-group(ng-model='vm.disableCaching')
+      md-radio-button(ng-value='true') Disable caching
+      md-radio-button(ng-value='false') Enable caching
+  md-content.md-padding
+    md-autocomplete(placeholder='Search country', md-selected-item='vm.selectedCountry', md-search-text='vm.searchText', md-no-cache='vm.disableCaching', md-items='item in vm.querySearch(vm.searchText)', md-item-text='item.display')
+      span(md-highlight-text='vm.searchText') {{item.display}}
+    p
+      | Selected country:
+      b {{vm.selectedCountry.display || &apos;No country selected&apos;}}
+    p
+      | Country code:
+      b {{vm.selectedCountry.code || &apos;No country selected&apos;}}

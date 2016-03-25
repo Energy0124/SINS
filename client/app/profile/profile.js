@@ -3,9 +3,13 @@
 angular.module('sinsApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('profile', {
+      .state('view.dash.profile', {
         url: '/profile',
         templateUrl: 'app/profile/profile.html',
-        controller: 'ProfileCtrl'
+        controller: 'ProfileCtrl',
+        controllerAs: 'vm',
+        data: {
+          title: 'Profile'
+        }
       });
   });

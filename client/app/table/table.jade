@@ -1,0 +1,16 @@
+// TODO: Replace table to table component when https://github.com/angular/material/issues/796 will closed
+.table-responsive-vertical.md-whiteframe-z1
+  table#table.table.table-hover.table-bordered
+    thead
+      tr
+        th #
+        th Issue
+        th Status
+        th Progress
+    tbody
+      tr(ng-repeat='data in vm.tableData track by $index')
+        td(data-title='ID') {{$index + 1}}
+        td(data-title='Issue') {{data.issue}}
+        td(data-title='Status') {{data.status}}
+        td(data-title='Progress')
+          md-progress-linear.table-progress(class='{{data.class}}', md-mode='determinate', value='{{data.progress}}')

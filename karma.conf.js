@@ -27,6 +27,13 @@ module.exports = function(config) {
       'client/bower_components/angular-aria/angular-aria.js',
       'client/bower_components/angular-messages/angular-messages.js',
       'client/bower_components/angular-material/angular-material.js',
+      'client/bower_components/angular-touch/angular-touch.js',
+      'client/bower_components/d3/d3.js',
+      'client/bower_components/nvd3/build/nv.d3.js',
+      'client/bower_components/angular-nvd3/dist/angular-nvd3.js',
+      'client/bower_components/angular-toastr/dist/angular-toastr.tpls.js',
+      'client/bower_components/moment/moment.js',
+      'client/bower_components/malarkey/dist/malarkey.min.js',
       // endbower
       'node_modules/socket.io-client/socket.io.js',
       'client/app/app.js',

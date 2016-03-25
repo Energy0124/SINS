@@ -1,0 +1,6 @@
+.messages(ng-controller='MessagesController as vm')
+  md-content.messages-content
+    messages-section(theme='md-accent', title='New Orders', messages='vm.messages')
+    messages-section(theme='md-primary', title='Delivered', messages='vm.messages')
+    messages-section(theme='md-warn', title='Problems reported', messages='vm.messages')
+    md-divider

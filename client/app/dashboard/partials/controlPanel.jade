@@ -1,0 +1,7 @@
+md-content.md-padding(ng-controller='ControlPanelController as vm')
+  md-progress-linear.widget-progress.md-accent(md-mode='determinate', value='{{vm.determinateValue}}', ng-show='vm.showProgress')
+  md-radio-group(ng-model='vm.reloadServer')
+    md-radio-button.md-accent(value='Staging') Staging server
+    md-radio-button.md-accent(value='Production') Production server
+  md-button.md-raised.md-warn(ng-click='vm.performProgress()')
+    | Reload server

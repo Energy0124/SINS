@@ -1,0 +1,9 @@
+section
+  md-subheader(ng-class='theme') {{title}}
+  md-list
+    md-list-item.md-3-line(ng-repeat='message in messages')
+      img.md-avatar(ng-src='assets/images/einstein.jpg')
+      .md-list-item-text
+        h3 {{message.subject}}
+        h4 {{message.userName}}
+        p {{message.text}}

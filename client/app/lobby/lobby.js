@@ -3,7 +3,7 @@
 angular.module('sinsApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('lobby', {
+      .state('home.lobby', {
         url: '/lobby',
         templateUrl: 'app/lobby/lobby.html',
         controller: 'LobbyCtrl'

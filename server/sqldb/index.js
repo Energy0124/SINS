@@ -1,7 +1,7 @@
 
 /**
  * Sequelize initialization module
- */
+ *!/
 
 'use strict';
 
@@ -17,4 +17,4 @@ var db = {
 // Insert models below
 
 export default db;
-
+*/

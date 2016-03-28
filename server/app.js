@@ -39,13 +39,20 @@ function startServer() {
   });
 }
 
-
+/*
 sqldb.sequelize.sync()
   .then(startServer)
   .catch(function(err) {
     console.log('Server failed to start due to error: %s', err);
   });
+*/
 
+
+try {
+  startServer()
+} catch (err) {
+  console.log('Server failed to start due to error: %s', err);
+}
 
 // Expose app
 exports = module.exports = app;

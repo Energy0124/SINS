@@ -1,0 +1,55 @@
+//script(type='text/javascript').
+//  $('#root-ui-view').attr("layout", "row");
+//  $('#root-ui-view').attr("class", "site-body");
+div.site-body(layout="row")
+  md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="left", md-is-locked-open="$mdMedia('gt-sm')")
+    md-toolbar.md-theme-indigo
+      h1.md-toolbar-tools Sidenav Left
+    md-content(layout-padding='', ng-controller='LeftCtrl')
+      md-button.md-primary(ng-click='close()', hide-gt-md='')
+        | Close Sidenav Left
+      p(hide-md='', show-gt-md='')
+        | This sidenav is locked open on your device. To go back to the default behavior,
+        | narrow your display.
+  div(layout='column', tabindex='-1', role='main', flex='')
+    md-toolbar.md-whiteframe-glow-z1
+      .md-toolbar-tools(tabindex='-1')
+        md-button.md-icon-button(ng-click='openMenu()', hide-gt-sm='', aria-label='Toggle Menu')
+          i.material-icons menu
+    div(ui-view='')
+  md-sidenav.md-sidenav-right.md-whiteframe-4dp(md-component-id='right')
+    md-toolbar.md-theme-light
+      h1.md-toolbar-tools Sidenav Right
+    md-content(ng-controller='RightCtrl', layout-padding='')
+      form
+        md-input-container
+          label(for='testInput') Test input
+          input#testInput(type='text', ng-model='data', md-autofocus='')
+      md-button.md-primary(ng-click='close()')
+        | Close Sidenav Right
+//div(ng-controller="AppCtrl")
+//  md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="left", hide-print='', md-is-locked-open="$mdMedia('gt-sm')")
+//    md-toolbar.md-theme-indigo
+//      h1.md-toolbar-tools Sidenav Left
+//    md-content(layout-padding='', ng-controller='LeftCtrl')
+//      md-button.md-primary(ng-click='close()', hide-gt-md='')
+//        | Close Sidenav Left
+//      p(hide-md='', show-gt-md='')
+//        | This sidenav is locked open on your device. To go back to the default behavior,
+//        | narrow your display.
+//  div(layout='column', tabindex='-1', role='main', flex='')
+//    md-toolbar.md-whiteframe-glow-z1
+//      .md-toolbar-tools(tabindex='-1')
+//        md-button.md-icon-button(ng-click='openMenu()', hide-gt-sm='', aria-label='Toggle Menu')
+//          i.material-icons menu
+//    div(ui-view='')
+//  md-sidenav.md-sidenav-right.md-whiteframe-4dp(md-component-id='right')
+//    md-toolbar.md-theme-light
+//      h1.md-toolbar-tools Sidenav Right
+//    md-content(ng-controller='RightCtrl', layout-padding='')
+//      form
+//        md-input-container
+//          label(for='testInput') Test input
+//          input#testInput(type='text', ng-model='data', md-autofocus='')
+//      md-button.md-primary(ng-click='close()')
+//        | Close Sidenav Right

@@ -3,9 +3,9 @@
 angular.module('sinsApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('view.dash.dashboard', {
+      .state('dash.dashboard', {
         url: '/dashboard',
-        templateUrl: 'app/dashboard/dashboard.html',
+        templateUrl: 'app/dash/dashboard/dashboard.html',
         controller: 'DashboardCtrl',
         data: {
           title: 'Dashboard'

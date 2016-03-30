@@ -3,7 +3,7 @@
 angular.module('sinsApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('home.wiki', {
+      .state('layout.wiki', {
         url: '/wiki',
         templateUrl: 'app/wiki/wiki.html',
         controller: 'WikiCtrl'

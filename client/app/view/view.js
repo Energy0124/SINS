@@ -6,9 +6,9 @@ angular.module('sinsApp')
       .state('view', {
         abstract: true,
         url: '',
-        //templateUrl: 'app/view/view.html',
+        templateUrl: 'app/view/view.html',
         //templateUrl: 'app/index.html',
-        template:'<div ui-view layout="row" layout-fill></div>',
+        //template:'<div ui-view layout="row" layout-fill></div>',
         //controller: 'ViewCtrl'
       })
   });

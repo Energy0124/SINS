@@ -3,9 +3,9 @@
 angular.module('sinsApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('view.dash.table', {
+      .state('dash.table', {
         url: '/table',
-        templateUrl: 'app/table/table.html',
+        templateUrl: 'app/dash/table/table.html',
         controller: 'TableCtrl',
         controllerAs: 'vm',
         data: {

@@ -3,11 +3,11 @@
   angular
     .module('sinsApp')
     .controller('DashCtrl', [
-      'navService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$state', '$mdToast',
+      'navService', '$mdSidenav','$mdMedia', '$mdBottomSheet', '$log', '$q', '$state', '$mdToast',
       MainController
     ]);
 
-  function MainController(navService, $mdSidenav, $mdBottomSheet, $log, $q, $state, $mdToast,$scope) {
+  function MainController(navService, $mdSidenav,$mdMedia, $mdBottomSheet, $log, $q, $state, $mdToast,$scope) {
     var vm = this;
 
     vm.menuItems = [ ];
@@ -17,6 +17,8 @@
     vm.title = $state.current.data.title;
     vm.showSimpleToast = showSimpleToast;
     vm.toggleRightSidebar = toggleRightSidebar;
+    vm.isRightSidebarLockOpened=true;
+    vm.isLeftSidebarLockOpened=true;
 
     navService
       .loadAllItems()
@@ -25,14 +27,28 @@
       });
 
     function toggleRightSidebar() {
-      $mdSidenav('right').toggle();
+      if($mdMedia('gt-md')){
+        $mdSidenav('right').close();
+        vm.isRightSidebarLockOpened=!vm.isRightSidebarLockOpened;
+      }else {
+        $mdSidenav('right').toggle();
+      }
+
+
     }
 
     function toggleItemsList() {
       var pending = $mdBottomSheet.hide() || $q.when(true);
 
       pending.then(function(){
-        $mdSidenav('left').toggle();
+        if($mdMedia('gt-md')){
+          $mdSidenav('left').close();
+          vm.isLeftSidebarLockOpened=!vm.isLeftSidebarLockOpened;
+        }else{
+          $mdSidenav('left').toggle();
+        }
+
+
       });
     }
 

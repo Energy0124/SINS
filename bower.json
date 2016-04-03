@@ -68,6 +68,7 @@
     "font-awesome": ">=4.1.0",
     "angular-validation-match": "~1.7.1",
     "bootstrap": "^3.3.6",
-    "angular-touch": "^1.5.2"
+    "angular-touch": "^1.5.2",
+    "angular-ui-utils": "~3.0.0"
   }
 }

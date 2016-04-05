@@ -13,6 +13,13 @@ md-sidenav.md-whiteframe-z2.md-sidenav-left(md-is-locked-open="$mdMedia('gt-md')
       .md-tile-content
         | {{item.name}}
   md-divider(ng-repeat-end='')
+  md-button.capitalize( layout='column', layout-align='center start', ng-click='vm.selectAdmin()', ui-sref-active='md-warn', ui-sref='dash.admin',ng-show='vm.isAdmin()')
+    div(layout='row')
+      .md-tile-content
+        i.material-icons.md-36 settings_applications
+      .md-tile-content
+        | Admin
+  md-divider
   md-button(ng-click='vm.showActions($event)',layout='column',layout-align='center center')
     .md-tile-content
       | Actions
@@ -37,7 +44,7 @@ md-sidenav.md-whiteframe-z2.md-sidenav-right(md-component-id='right', md-is-lock
       img.img-circle(ng-src='assets/images/feynman.jpg')
       md-menu(md-offset='0 20')
         md-button.capitalize(ng-click='$mdOpenMenu()', aria-label='Open menu')
-          span Richard Feynman
+          span {{vm.getCurrentUser().name}}
           i.material-icons keyboard_arrow_down
         md-menu-content(width='3')
           md-menu-item

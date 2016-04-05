@@ -28,6 +28,12 @@
       .loadAllItems()
       .then(function (menuItems) {
         vm.menuItems = [].concat(menuItems);
+        for(var i=vm.menuItems.length-1;i--;){
+          if(vm.menuItems[i].name='Admin'&&!Auth.isAdmin()){
+            vm.menuItems.splice(i,1);
+            break;
+          }
+        }
       });
 
 
@@ -60,6 +66,13 @@
 
     function selectItem(item) {
       vm.title = item.name;
+      if (!$mdMedia('gt-md')) {
+        vm.toggleItemsList();
+      }
+      vm.showSimpleToast(vm.title);
+    }
+    function selectAdmin(){
+      vm.title='Admin';
       if (!$mdMedia('gt-md')) {
         vm.toggleItemsList();
       }

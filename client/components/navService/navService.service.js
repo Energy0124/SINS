@@ -40,21 +40,11 @@
         icon: 'view_module',
         sref: '.table'
       },
-      {
-        name: 'Login',
-        icon: 'help',
-        sref: '.login'
-      },
-      {
-        name: 'Logout',
-        icon: 'help',
-        sref: '.logout'
-      },
-      {
+/*      {
         name: 'Admin',
         icon: 'help',
         sref: '.admin'
-      }
+      }*/
     ];
     /*
      if (Auth.isAdmin()){

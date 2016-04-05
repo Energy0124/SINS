@@ -23,13 +23,14 @@
     vm.isAdmin = Auth.isAdmin;
     vm.getCurrentUser = Auth.getCurrentUser;
 
+
     navService
       .loadAllItems()
       .then(function (menuItems) {
         vm.menuItems = [].concat(menuItems);
       });
 
-    
+
 
     function toggleRightSidebar() {
       if ($mdMedia('gt-md')) {

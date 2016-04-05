@@ -3,11 +3,11 @@
   angular
     .module('sinsApp')
     .controller('DashCtrl', [
-      'navService', '$mdSidenav', '$mdMedia', '$mdBottomSheet', '$log', '$q', '$state', '$mdToast',
-      MainController
+      'navService', 'Auth', '$mdSidenav', '$mdMedia', '$mdBottomSheet', '$log', '$q', '$state', '$mdToast',
+      DashController
     ]);
 
-  function MainController(navService, $mdSidenav, $mdMedia, $mdBottomSheet, $log, $q, $state, $mdToast, $scope) {
+  function DashController(navService, Auth, $mdSidenav, $mdMedia, $mdBottomSheet, $log, $q, $state, $mdToast, $scope) {
     var vm = this;
 
     vm.menuItems = [];
@@ -19,12 +19,17 @@
     vm.toggleRightSidebar = toggleRightSidebar;
     vm.isRightSidebarLockOpened = true;
     vm.isLeftSidebarLockOpened = true;
+    vm.isLoggedIn = Auth.isLoggedIn;
+    vm.isAdmin = Auth.isAdmin;
+    vm.getCurrentUser = Auth.getCurrentUser;
 
     navService
       .loadAllItems()
       .then(function (menuItems) {
         vm.menuItems = [].concat(menuItems);
       });
+
+    
 
     function toggleRightSidebar() {
       if ($mdMedia('gt-md')) {

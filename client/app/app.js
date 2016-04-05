@@ -25,13 +25,21 @@ angular.module('sinsApp', [
 
     $mdThemingProvider
       .theme('default')
+      .primaryPalette('indigo')
+      .accentPalette('pink')
+      .warnPalette('red')
+      .backgroundPalette('grey');
+
+
+    /*$mdThemingProvider
+      .theme('default')
       .primaryPalette('grey', {
         'default': '600'
       })
       .accentPalette('teal', {
         'default': '500'
       })
-      .warnPalette('defaultPrimary');
+      .warnPalette('defaultPrimary');*/
 
     $mdThemingProvider.theme('dark', 'default')
       .primaryPalette('defaultPrimary')

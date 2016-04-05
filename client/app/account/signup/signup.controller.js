@@ -23,7 +23,7 @@ class SignupController {
       })
       .then(() => {
         // Account created, redirect to home
-        this.$state.go('home.main');
+        this.$state.go('dash.main');
       })
       .catch(err => {
         err = err.data;

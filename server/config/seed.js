@@ -9,7 +9,7 @@ import User from '../api/user/user.model';
 
 Thing.find({}).removeAsync()
   .then(() => {
-    /*Thing.create({
+    Thing.create({
       name: 'Development Tools',
       info: 'Integration with popular tools such as Bower, Grunt, Babel, Karma, ' +
              'Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, ' +
@@ -36,7 +36,7 @@ Thing.find({}).removeAsync()
       name: 'Deployment Ready',
       info: 'Easily deploy your app to Heroku or Openshift with the heroku ' +
              'and openshift subgenerators'
-    });*/
+    });
   });
 
 User.find({}).removeAsync()

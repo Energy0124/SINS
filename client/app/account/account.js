@@ -3,41 +3,53 @@
 angular.module('sinsApp')
   .config(function($stateProvider) {
     $stateProvider
-      .state('home.login', {
+      .state('dash.login', {
         url: '/login',
         templateUrl: 'app/account/login/login.html',
         controller: 'LoginController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        data: {
+          title: 'Login'
+        }
       })
-      .state('home.logout', {
+      .state('dash.logout', {
         url: '/logout?referrer',
-        referrer: 'home.main',
+        referrer: 'dash.main',
         template: '',
         controller: function($state, Auth) {
           var referrer = $state.params.referrer ||
                           $state.current.referrer ||
-                          'home.main';
+                          'dash.main';
           Auth.logout();
           $state.go(referrer);
+        },
+        data: {
+          title: 'Logout'
         }
       })
-      .state('home.signup', {
+      .state('dash.signup', {
         url: '/signup',
         templateUrl: 'app/account/signup/signup.html',
         controller: 'SignupController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        data: {
+          title: 'Register'
+        }
       })
-      .state('home.settings', {
+      .state('dash.settings', {
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsController',
         controllerAs: 'vm',
-        authenticate: true
+        authenticate: true,
+        data: {
+          title: 'Settings'
+        }
       });
   })
   .run(function($rootScope) {
     $rootScope.$on('$stateChangeStart', function(event, next, nextParams, current) {
-      if (next.name === 'home.logout' && current && current.name && !current.authenticate) {
+      if (next.name === 'dash.logout' && current && current.name && !current.authenticate) {
         next.referrer = current.name;
       }
     });

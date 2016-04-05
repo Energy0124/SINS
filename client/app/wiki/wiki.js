@@ -3,9 +3,12 @@
 angular.module('sinsApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('layout.wiki', {
+      .state('dash.wiki', {
         url: '/wiki',
         templateUrl: 'app/wiki/wiki.html',
-        controller: 'WikiCtrl'
+        controller: 'WikiCtrl',
+        data: {
+          title: 'Wiki'
+        }
       });
   });

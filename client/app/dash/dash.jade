@@ -4,7 +4,7 @@ script(type='text/javascript').
   $('body').attr("layout-fill","");
 md-sidenav.md-whiteframe-z2.md-sidenav-left(md-is-locked-open="$mdMedia('gt-md')&&vm.isLeftSidebarLockOpened", md-component-id='left')
   md-toolbar.md-hue-1.md-whiteframe-z2(md-theme='custom')
-    md-button.md-toolbar-tools.md-warn(layout='row', layout-align='center center', href='https://github.com/flatlogic/angular-material-dashboard')
+    md-button.md-toolbar-tools.md-warn(layout='row', layout-align='center center', ui-sref='.dashboard')
       h1 AMD
   md-button.capitalize(ng-repeat-start='item in vm.menuItems', layout='column', layout-align='center start', ng-click='vm.selectItem(item)', ui-sref-active='md-warn', ui-sref='{{item.sref}}')
     div(layout='row')
@@ -40,9 +40,9 @@ md-sidenav.md-whiteframe-z2.md-sidenav-right(md-component-id='right',md-is-locke
           i.material-icons keyboard_arrow_down
         md-menu-content(width='3')
           md-menu-item
-            md-button(ng-click='$mdCloseMenu()', ui-sref='view.dash.profile') Profile
+            md-button(ng-click='$mdCloseMenu()', ui-sref='dash.profile') Profile
           md-menu-item
-            md-button(ng-click='$mdCloseMenu()', ui-sref='view.dash.dashboard') Log out
+            md-button(ng-click='$mdCloseMenu()', ui-sref='dash.dashboard') Log out
   section
     md-toolbar.md-hue-1(md-theme='grey')
       .md-toolbar-tools

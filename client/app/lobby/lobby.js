@@ -3,9 +3,12 @@
 angular.module('sinsApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('home.lobby', {
+      .state('dash.lobby', {
         url: '/lobby',
         templateUrl: 'app/lobby/lobby.html',
-        controller: 'LobbyCtrl'
+        controller: 'LobbyCtrl',
+        data: {
+          title: 'Lobby'
+        }
       });
   });

@@ -36,6 +36,15 @@ angular.module('sinsApp')
           title: 'Register'
         }
       })
+      .state('dash.reset', {
+        url: '/reset',
+        templateUrl: 'app/account/reset/reset.html',
+        controller: 'ResetController',
+        controllerAs: 'vm',
+        data: {
+          title: 'Reset'
+        }
+      })
       .state('dash.settings', {
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',

@@ -1,19 +1,23 @@
 'use strict';
 
 class LoginController {
-  constructor(Auth, $state) {
+  constructor(Auth, $state,$log,$http, $cookies) {
     this.user = {};
     this.errors = {};
     this.submitted = false;
 
     this.Auth = Auth;
     this.$state = $state;
+    this.$log=$log;
+    this.$http=$http;
   }
 
   login(form) {
     this.submitted = true;
 
     if (form.$valid) {
+
+
       this.Auth.login({
         email: this.user.email,
         password: this.user.password
@@ -24,6 +28,7 @@ class LoginController {
       })
       .catch(err => {
         this.errors.other = err.message;
+        //this.$log.log(err);
       });
     }
   }

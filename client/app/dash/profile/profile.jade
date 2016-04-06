@@ -10,10 +10,10 @@ md-card
         tr
           td User Level
           td {{vm.user.level}}
-        tr(ng-hide = '0 === vm.user.country.length')
+        tr(ng-hide = '0 == vm.user.country.length')
           td Country
           td {{vm.user.country}}
-        tr(ng-hide = '0 === vm.user.description.length')
+        tr(ng-hide = '0 == vm.user.description.length')
           td Description
           td {{vm.user.description}}
     md-card-title-media

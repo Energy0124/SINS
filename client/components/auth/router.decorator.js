@@ -18,7 +18,7 @@ angular.module('sinsApp.auth')
 
           event.preventDefault();
           return Auth.isLoggedIn(_.noop).then(is => {
-            $state.go(is ? 'main' : 'login');
+            $state.go(is ? 'dash.main' : 'dash.login');
           });
         });
       } else {
@@ -28,7 +28,7 @@ angular.module('sinsApp.auth')
           }
 
           event.preventDefault();
-          $state.go('main');
+          $state.go('dash.main');
         });
       }
     });

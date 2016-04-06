@@ -3,11 +3,13 @@
   angular
     .module('sinsApp')
     .controller('ProfileCtrl', [
+      "$resource",
       ProfileController
     ]);
 
-  function ProfileController($scope) {
+  function ProfileController($resource,$scope) {
     var vm = this;
+    
 
     vm.user = {
       title: 'Admin',

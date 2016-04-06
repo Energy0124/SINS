@@ -4,23 +4,21 @@
       h1 Forget password
     .col-sm-12
       form.form(name='form', ng-submit='vm.reset(form)', novalidate='')
-        .form-group(ng-class='{ "has-success": form.name.$valid && vm.submitted,\
-        "has-error": form.name.$invalid && vm.submitted }')
+        md-input-container.md-block()
           label Name
-          input.form-control(type='text', name='name', ng-model='vm.user.name', required='')
-          p.help-block(ng-show='form.name.$error.required && vm.submitted')
-            | A name is required
+          input(type='text',required='', name='name', ng-model='vm.user.name')
+          div(ng-messages='form.name.$error')
+            div(ng-message="required") A name is required
+          //p(ng-show='form.name.$error.required && vm.submitted')
+          //  | A name is required
 
-        .form-group(ng-class='{ "has-success": form.email.$valid && vm.submitted,\
-        "has-error": form.email.$invalid && vm.submitted }')
+        md-input-container.md-block()
           label Email
-          input.form-control(type='email', name='email', ng-model='vm.user.email', required='', mongoose-error='')
-          p.help-block(ng-show='form.email.$error.email && vm.submitted')
-            | Doesn't look like a valid email.
-          p.help-block(ng-show='form.email.$error.required && vm.submitted')
-            | What's your email address?
-          p.help-block(ng-show='form.email.$error.mongoose')
-            | {{ vm.errors.email }}
+          input(type='email', name='email', ng-model='vm.user.email', required='', mongoose-error='')
+          div(ng-messages='form.email.$error')
+            div(ng-message="required") What's your email address?
+            div(ng-message="email") Your email address is invalid
+            div(ng-message="mongoose") {{ vm.errors.email }}
 
       section(layout='row')
         md-button(type='submit')
@@ -28,10 +26,6 @@
         md-button(ui-sref='dash.login')
           | Back
 
-      hr
 
-      div
-        div
-          oauth-buttons(classes='btn-block')
 
 hr

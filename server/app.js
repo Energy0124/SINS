@@ -11,6 +11,8 @@ import sqldb from './sqldb';
 import config from './config/environment';
 import http from 'http';
 
+
+
 // Connect to MongoDB
 mongoose.connect(config.mongo.uri, config.mongo.options);
 mongoose.connection.on('error', function(err) {
@@ -28,9 +30,30 @@ var socketio = require('socket.io')(server, {
   serveClient: config.env !== 'production',
   path: '/socket.io-client'
 });
+
+//var bodyParser = require('body-parser');
+//app.use(bodyParser());
+// app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+// app.use(bodyParser.json()); // support json encoded bodies
+//app.use(express.json());       // to support JSON-encoded bodies
+//app.use(express.urlencoded()); // to support URL-encoded bodies
+
+
+//send reset new pw
+var sendPW=require('./mail');
+app.get('/resetpassword/:email', function (req, res) {
+  console.log('Email:', req.params.email);
+  sendPW.sendMail(req.params.email);
+  res.send(req.params.email);
+});
+
+
 require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./routes')(app);
+
+
+
 
 // Start server
 function startServer() {

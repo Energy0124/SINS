@@ -1,63 +1,66 @@
-.container
-  .row
-    .col-sm-12
+md-content
+  div
+    div
       h1 Sign up
-    .col-sm-12
-      form.form(name='form', ng-submit='vm.register(form)', novalidate='')
-        .form-group(ng-class='{ "has-success": form.name.$valid && vm.submitted,\
-        "has-error": form.name.$invalid && vm.submitted }')
+    div
+      form(name='form', ng-submit='vm.register(form)')
+        md-input-container.md-block()
           label Name
-          input.form-control(type='text', name='name', ng-model='vm.user.name', required='')
-          p.help-block(ng-show='form.name.$error.required && vm.submitted')
-            | A name is required
+          input(type='text',required='', name='name', ng-model='vm.user.name')
+          div(ng-messages='form.name.$error')
+            div(ng-message="required") A name is required
+          //p(ng-show='form.name.$error.required && vm.submitted')
+          //  | A name is required
 
-        .form-group(ng-class='{ "has-success": form.email.$valid && vm.submitted,\
-        "has-error": form.email.$invalid && vm.submitted }')
+        md-input-container.md-block()
           label Email
-          input.form-control(type='email', name='email', ng-model='vm.user.email', required='', mongoose-error='')
-          p.help-block(ng-show='form.email.$error.email && vm.submitted')
-            | Doesn't look like a valid email.
-          p.help-block(ng-show='form.email.$error.required && vm.submitted')
-            | What's your email address?
-          p.help-block(ng-show='form.email.$error.mongoose')
-            | {{ vm.errors.email }}
+          input(type='email', name='email', ng-model='vm.user.email', required='', mongoose-error='')
+          div(ng-messages='form.email.$error')
+            div(ng-message="required") What's your email address?
+            div(ng-message="email") Your email address is invalid
+            div(ng-message="mongoose") {{ vm.errors.email }}
 
-        .form-group(ng-class='{ "has-success": form.password.$valid && vm.submitted,\
-        "has-error": form.password.$invalid && vm.submitted }')
+          //p(ng-show='form.email.$error.email && vm.submitted')
+          //  | Doesn't look like a valid email.
+          //p(ng-show='form.email.$error.required && vm.submitted')
+          //  | What's your email address?
+          //p(ng-show='form.email.$error.mongoose')
+          //  | {{ vm.errors.email }}
+
+        md-input-container.md-block()
           label Password
           input.form-control(type='password'
             name='password'
             ng-model='vm.user.password'
             mongoose-error=''
-            ng-minlength='3', required='')
+            ng-minlength='6', required='')
+          div(ng-messages='form.password.$error')
+            div(ng-message="required") A password is required
+            div(ng-message="minlength") Password must be at least 6 characters.
+            div(ng-message="mongoose") {{ vm.errors.password }}
 
-          p.help-block(ng-show='(form.password.$error.minlength || form.password.$error.required) && vm.submitted')
-            | Password must be at least 3 characters.
-          p.help-block(ng-show='form.password.$error.mongoose')
-            | {{ vm.errors.password }}
-
-        .form-group(ng-class='{ "has-success": form.confirmPassword.$valid && vm.submitted,\
-        "has-error": form.confirmPassword.$invalid && vm.submitted }')
+        md-input-container.md-block()
           label Confirm Password
-          input.form-control(type='password'
+          input(type='password'
             name='confirmPassword'
             ng-model='vm.user.confirmPassword'
             match="vm.user.password"
             ng-minlength='3', required='')
-          p.help-block(ng-show='form.confirmPassword.$error.match && vm.submitted')
-            | Passwords must match.
+          div(ng-messages='form.confirmPassword.$error')
+            div(ng-message="match") Passwords must match.
+          //p(ng-show='form.confirmPassword.$error.match && vm.submitted')
+          //  | Passwords must match.
 
-        div
-          button.btn.btn-inverse.btn-lg.btn-register(type='submit')
+        section(layout='row')
+          md-button(type='submit')
             | Sign up
-          = ' '
-          a.btn.btn-default.btn-lg.btn-login(ui-sref='dash.login')
+          md-button(ui-sref='dash.login')
             | Login
 
         hr
 
-        .row
-          .col-sm-4.col-md-3
+        div
+          div
             oauth-buttons(classes='btn-block')
 
   hr

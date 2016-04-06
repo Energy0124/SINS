@@ -20,14 +20,19 @@ md-content
         md-input-container.md-block
           label Email
           input(type='email', name='email', ng-model='vm.user.email')
+          div(ng-messages='form.email.$error')
+            div(ng-message="required") Email is required
+
         md-input-container.md-block
           label Password
           input(type='password', name='password', ng-model='vm.user.password')
+          div(ng-messages='form.password.$error')
+            div(ng-message="required") Password is required
 
-        div
-          p.help-block(ng-show='form.email.$error.required && form.password.$error.required && vm.submitted')
-            | Please enter your email and password.
-          p.help-block {{ vm.errors.other }}
+        //div
+        //  p.help-block(ng-show='form.email.$error.required && form.password.$error.required && vm.submitted')
+        //    | Please enter your email and password.
+        //  p.help-block {{ vm.errors.other }}
 
         section(layout='row')
           md-button(type='submit') Login

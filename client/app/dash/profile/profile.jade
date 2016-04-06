@@ -1,19 +1,26 @@
 // TODO: Add validations
 md-content.md-padding(md-theme='dark', layout='row', layout-sm='column')
-  table
-    tr
-      td Username
-      td {{vm.user.name}}
-    tr
-      td User Level
-      td {{vm.user.level}}
-    tr(ng-hide = '0 === vm.user.country.length')
-      td Country
-      td {{vm.user.country}}
-    tr(ng-hide = '0 === vm.user.description.length')
-      td Description
-      td {{vm.user.description}}
 
+
+md-card
+  md-card-title
+    md-card-title-text
+      span.md-headline {{vm.user.name}}
+      table
+        tr
+          td User Level
+          td {{vm.user.level}}
+        tr(ng-hide = '0 === vm.user.country.length')
+          td Country
+          td {{vm.user.country}}
+        tr(ng-hide = '0 === vm.user.description.length')
+          td Description
+          td {{vm.user.description}}
+    md-card-title-media
+      .md-media-lg.card-media
+  md-card-actions(layout='row', layout-align='end center')
+    md-button Action 1
+    md-button Action 2
 
 md-content.md-padding
   form(name='userForm')

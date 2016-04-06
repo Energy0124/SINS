@@ -45,16 +45,16 @@ md-content
             name='confirmPassword'
             ng-model='vm.user.confirmPassword'
             match="vm.user.password"
-            ng-minlength='3', required='')
+            ng-minlength='6', required='')
           div(ng-messages='form.confirmPassword.$error')
             div(ng-message="match") Passwords must match.
           //p(ng-show='form.confirmPassword.$error.match && vm.submitted')
           //  | Passwords must match.
 
         section(layout='row')
-          md-button(type='submit')
+          md-button.md-raised(type='submit')
             | Sign up
-          md-button(ui-sref='dash.login')
+          md-button.md-raised(ui-sref='dash.login')
             | Login
 
         hr

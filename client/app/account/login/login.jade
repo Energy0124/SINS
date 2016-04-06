@@ -16,16 +16,16 @@ md-content
         code admin
 
     section
-      form(name='form', ng-submit='vm.login(form)', novalidate='')
+      form(name='form', ng-submit='vm.login(form)')
         md-input-container.md-block
           label Email
-          input(type='email', name='email', ng-model='vm.user.email')
+          input(type='email', required='', name='email', ng-model='vm.user.email')
           div(ng-messages='form.email.$error')
             div(ng-message="required") Email is required
 
         md-input-container.md-block
           label Password
-          input(type='password', name='password', ng-model='vm.user.password')
+          input(type='password',required='', name='password', ng-model='vm.user.password')
           div(ng-messages='form.password.$error')
             div(ng-message="required") Password is required
 

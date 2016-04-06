@@ -4,14 +4,16 @@
     .module('sinsApp')
     .controller('ProfileCtrl', [
       "$resource",
+      "Auth",
       ProfileController
     ]);
 
-  function ProfileController($resource,$scope) {
+  function ProfileController($resource,Auth,$scope) {
     var vm = this;
-    
 
-    vm.user = {
+    vm.user=Auth.getCurrentUser();
+
+/*    vm.user = {
       title: 'Admin',
       email: 'contact@flatlogic.com',
       firstName: '',
@@ -23,7 +25,7 @@
       biography: 'We are young and ambitious full service design and technology company. ' +
       'Our focus is JavaScript development and User Interface design.',
       postalCode : '220007'
-    };
+    };*/
   }
 
 })();

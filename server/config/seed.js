@@ -51,7 +51,8 @@ User.find({}).removeAsync()
       role: 'admin',
       name: 'Admin',
       email: 'admin@example.com',
-      password: 'admin'
+      password: 'admin',
+      level: 99
     })
     .then(() => {
       console.log('finished populating users');

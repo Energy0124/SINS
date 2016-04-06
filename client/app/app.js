@@ -12,6 +12,7 @@ angular.module('sinsApp', [
     'ui.bootstrap',
     'validation.match',
     'ngMaterial',
+    'ngMessages',
     'ngAnimate',
     'ngTouch',
     'nvd3'

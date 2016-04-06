@@ -39,7 +39,7 @@
         name: 'Table',
         icon: 'view_module',
         sref: '.table'
-      },
+      }
 /*      {
         name: 'Admin',
         icon: 'help',

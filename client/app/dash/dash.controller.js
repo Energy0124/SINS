@@ -28,12 +28,7 @@
       .loadAllItems()
       .then(function (menuItems) {
         vm.menuItems = [].concat(menuItems);
-        for(var i=vm.menuItems.length-1;i--;){
-          if(vm.menuItems[i].name='Admin'&&!Auth.isAdmin()){
-            vm.menuItems.splice(i,1);
-            break;
-          }
-        }
+        
       });
 
 

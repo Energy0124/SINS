@@ -12,16 +12,17 @@ import config from './config/environment';
 import http from 'http';
 
 
-
 // Connect to MongoDB
 mongoose.connect(config.mongo.uri, config.mongo.options);
-mongoose.connection.on('error', function(err) {
+mongoose.connection.on('error', function (err) {
   console.error('MongoDB connection error: ' + err);
   process.exit(-1);
 });
 
 // Populate databases with sample data
-if (config.seedDB) { require('./config/seed'); }
+if (config.seedDB) {
+  require('./config/seed');
+}
 
 // Setup server
 var app = express();
@@ -40,11 +41,17 @@ var socketio = require('socket.io')(server, {
 
 
 //send reset new pw
-var sendPW=require('./mail');
+var sendPW = require('./mail');
 app.get('/resetpassword/:email', function (req, res) {
   console.log('Email:', req.params.email);
-  sendPW.sendMail(req.params.email);
-  res.send(req.params.email);
+  sendPW.sendMail(req.params.email, function (info) {
+    res.send(req.params.email+'sent success: '+info);
+  }, function (err) {
+    console.log('Error: '+err);
+    res.status(403).send(err);
+
+  });
+
 });
 
 
@@ -53,22 +60,20 @@ require('./config/express')(app);
 require('./routes')(app);
 
 
-
-
 // Start server
 function startServer() {
-  app.angularFullstack = server.listen(config.port, config.ip, function() {
+  app.angularFullstack = server.listen(config.port, config.ip, function () {
     console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
   });
 }
 
 /*
-sqldb.sequelize.sync()
-  .then(startServer)
-  .catch(function(err) {
-    console.log('Server failed to start due to error: %s', err);
-  });
-*/
+ sqldb.sequelize.sync()
+ .then(startServer)
+ .catch(function(err) {
+ console.log('Server failed to start due to error: %s', err);
+ });
+ */
 
 
 try {

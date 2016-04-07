@@ -4,7 +4,7 @@ import User from '../api/user/user.model';
 
 'use strict';
 var sendNewPassword = {
-  sendMail: function (email) {
+  sendMail: function (email,cb,cberr) {
     var nodemailer = require('nodemailer');
     var randomstring = require("randomstring");
 // create reusable transporter object using the default SMTP transport
@@ -25,6 +25,7 @@ var sendNewPassword = {
       .then(user => { // don't ever give out the password or salt
         if (!user) {
           console.log('User not found!');
+          return cberr('User not found!');
         } else {
           user.password = newPassword;
           console.log(user.password);
@@ -34,13 +35,22 @@ var sendNewPassword = {
 
           transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
-              return console.log(error);
+
+              console.log(error);
+              return cberr(error);
+
             }
+
             console.log('Message sent: ' + info.response);
+            return cb(info.repsonse);
           });
+
         }
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err)
+        cberr(err);
+      });
 
 
   }

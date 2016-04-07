@@ -24,6 +24,7 @@ body ui-view{
 
 // Component styles are injected through grunt
 // injector
+@import 'account/login/login.scss';
 @import 'admin/admin.scss';
 @import 'dash/dash.scss';
 @import 'dash/dashboard/dashboard.scss';

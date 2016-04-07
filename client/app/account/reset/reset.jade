@@ -1,14 +1,14 @@
-.container
-  .row
-    .col-sm-12
-      h1 Forget password
-    .col-sm-12
+md-content
+  div
+    div
+      h1 Password Reset
+    div
       form.form(name='form', ng-submit='vm.reset(form)', novalidate='')
-        md-input-container.md-block()
-          label Name
-          input(type='text',required='', name='name', ng-model='vm.user.name')
-          div(ng-messages='form.name.$error')
-            div(ng-message="required") A name is required
+        //md-input-container.md-block()
+        //  label Name
+        //  input(type='text',required='', name='name', ng-model='vm.user.name')
+        //  div(ng-messages='form.name.$error')
+        //    div(ng-message="required") A name is required
           //p(ng-show='form.name.$error.required && vm.submitted')
           //  | A name is required
 
@@ -19,12 +19,14 @@
             div(ng-message="required") What's your email address?
             div(ng-message="email") Your email address is invalid
             div(ng-message="mongoose") {{ vm.errors.email }}
+        md-card(ng-show='vm.submitted')
+          h4.error-message-text {{ vm.message }}
 
-      section(layout='row')
-        md-button(type='submit')
-          | Reset
-        md-button(ui-sref='dash.login')
-          | Back
+        section(layout='row')
+          md-button.md-raised(type='submit')
+            | Reset
+          md-button.md-raised(ui-sref='dash.login')
+            | Back
 
 
 

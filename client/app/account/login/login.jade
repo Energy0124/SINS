@@ -30,9 +30,9 @@ md-content
             div(ng-message="required") Password is required
 
         div
-          p.help-block(ng-show='form.email.$error.required && form.password.$error.required && vm.submitted')
+          p.error-message-text(ng-show='form.email.$error.required && form.password.$error.required && vm.submitted')
             | Please enter your email and password.
-          p.help-block {{ vm.errors.other }}
+          p.error-message-text {{ vm.errors.other }}
 
         section(layout='row')
           md-button.md-raised(type='submit') Login

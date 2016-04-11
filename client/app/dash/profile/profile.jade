@@ -18,8 +18,8 @@ md-card
           td {{vm.user.description}}
     md-card-title-media
       .md-media-lg.card-media
-  md-card-actions(layout='row', layout-align='end center')
-    md-button Add Friend
+  md-card-actions(layout='row', layout-align='end center', ng-hide='vm.isSelf')
+    md-button {{vm.friendText}}
     md-button Message
 
 md-content.md-padding

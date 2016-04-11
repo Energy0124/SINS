@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('sinsApp')
-  .factory('Message', function ($resource) {
+  .factory('Article', function ($resource) {
 
-    return $resource("/api/messages/:id", {
+    return $resource("/api/article/:id", {
       id: '@_id'
     }, {
       'update': {method: 'PUT'}

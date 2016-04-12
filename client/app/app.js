@@ -14,6 +14,7 @@ angular.module('sinsApp', [
     'ngMaterial',
     'ngMessages',
     'ngAnimate',
+    'textAngular',
     'nvd3'
   ])
   .config(function ($urlRouterProvider, $locationProvider, $mdThemingProvider,

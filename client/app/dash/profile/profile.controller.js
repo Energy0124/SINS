@@ -8,30 +8,49 @@
       "$stateParams",
       "$log",
       "User",
+      "$scope",
       ProfileController
     ]);
 
-  function ProfileController($resource, Auth, $stateParams, $log,User, $scope) {
+  function ProfileController($resource, Auth, $stateParams, $log, User, $scope) {
     var vm = this;
-    vm.user = Auth.getCurrentUser();
-
-    vm.isSelf = false;
+    // vm.user = Auth.getCurrentUser();
+    $scope.user = {};
+    //user
+    $scope.isSelf = false;
     $log.log($stateParams);
+    User.get({_id: $stateParams.id}, function (user) {
+      //vm.user =user;
+      $scope.user = user;
+      /*User.get(function (me) {
+        $scope.me = me;
+        $scope.toggleFriend = function () {
+          if (user.friends.indexOf(me._id) == -1) {
+            me.friends.push(user._id);
+            User.update({id: me._id}, me);
+          }
+        }
+      });*/
+
+
+      if ($stateParams.id == $scope.user._id) {
+        $scope.isSelf = true;
+      } else {
+        $scope.isSelf = false;
+      }
+
+      if ($scope.isSelf) {
+        $scope.friendText = "";
+      } else if ($scope.user.friends.indexOf($stateParams.id) == -1) {
+        $scope.friendText = "Add Friend";
+      } else {
+        $scope.friendText = "Unfriend";
+      }
+      $scope.$apply();
+
+    });
 
     //vm.id=
-    if ($stateParams.id == vm.user._id) {
-      vm.isSelf = true;
-    } else {
-      vm.isSelf = false;
-    }
-
-    if (vm.isSelf) {
-      vm.friendText = "";
-    } else if (vm.user.friends.indexOf($stateParams.id) == -1) {
-      vm.friendText = "Add Friend";
-    } else {
-      vm.friendText = "Unfriend";
-    }
 
 
     /*    vm.user = {

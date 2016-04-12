@@ -6,18 +6,19 @@ div(ng-cloak='')
           h1.md-display-2 Game Wiki
           div(ng-controller='WikiCtrl')
             div(ng-hide='editEnabled')
-              P(style="width:70%")
-                {{GameWikiContent}}
+              div(ng-bind-html="GameWikiContent")
+                //{{GameWikiContent}}
               md-button(class="md-raised" ng-click="editGameWiki()" href="#")
                 | Edit
             div(ng-show='editEnabled')
-              P
+              text-angular(ng-model="htmlVariable")
+              //P
                 textarea(ng-model='editableContent' ng-show='editEnabled' rows='5' style='width:70%')
               md-button(class="md-raised" ng-click="saveGameWiki()" href="#")
                 | Save
               md-button(class="md-raised" ng-click="cancelGameWiki()" href="#")
                 | Cancel
-      md-tab(label='Game Platform API')
+      //md-tab(label='Game Platform API')
         md-content.md-padding
           h1.md-display-2 Game Platform API
           p
@@ -28,7 +29,7 @@ div(ng-cloak='')
             | Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.
           md-button(class="md-raised" md-click="saveGameWiki()")
             | Save
-      md-tab(label='Developer Wiki')
+      //md-tab(label='Developer Wiki')
         md-content.md-padding
           h1.md-display-2 Developer Wiki
           p

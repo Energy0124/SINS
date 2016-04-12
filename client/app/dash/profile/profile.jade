@@ -1,39 +1,61 @@
 // TODO: Add validations
-md-content.md-padding(md-theme='dark', layout='row', layout-sm='column')
+//md-content.md-padding(md-theme='dark', layout='row', layout-sm='column')
 
-md-card
+md-card()
   md-card-title
     md-card-title-text
-      span.md-headline {{vm.user.name}}
+      span.md-headline {{user.name}}
       table
         tr
           td User Level
-          td {{vm.user.level}}
-        tr(ng-hide = '0 == vm.user.country.length')
+          td {{user.level}}
+        tr()
           td Country
-          td {{vm.user.country}}
-        tr(ng-hide = '0 == vm.user.description.length')
+          td {{user.country}}
+        tr()
           td Description
-          td {{vm.user.description}}
+          td {{user.description}}
     md-card-title-media
       .md-media-lg.card-media
-  md-card-actions(layout='row', layout-align='end center', ng-hide='vm.isSelf')
-    md-button {{vm.friendText}}
+  md-card-actions(layout='row', layout-align='end center', ng-hide='isSelf')
+    md-button {{friendText}}
     md-button Message
+md-card()
+  div(layout='column')
+    md-toolbar()
+      .md-toolbar-tools
+        h3
+          span Friends
+    md-content(flex='')
+      md-list
+        md-list-item.md-3-line(ng-repeat='item in user')
+          //img.md-avatar(ng-src='{{item.face}}', alt='{{item.who}}')
+          .md-list-item-text
+            h3 {{item}}
+            h4
+          md-divider(inset='')
 
-div(ng-controller='ProfileCtrl', layout='column', style='height:250px', ng-cloak='')
-  md-toolbar(md-scroll-shrink='', ng-if='true')
-    .md-toolbar-tools
-      h3
-        span Friends
-  md-content(flex='')
-    md-list
-      md-list-item.md-3-line(ng-repeat='item in vm.user')
-        //img.md-avatar(ng-src='{{item.face}}', alt='{{item.who}}')
-        .md-list-item-text
-          h3 {{item}}
-          h4
-        md-divider(inset='')
+#disqus_thread
+script.
+  /**
+   * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+   * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+   */
+  /*
+   var disqus_config = function () {
+   this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+   this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+   };
+   */
+  (function () { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//sinsgames.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+noscript
+  | Please enable JavaScript to view the
+  a(href='https://disqus.com/?ref_noscript', rel='nofollow') comments powered by Disqus.
 
 //md-content.md-padding
   form(name='userForm')

@@ -4,7 +4,7 @@ angular.module('sinsApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('dash.profile', {
-        url: '/profile',
+        url: '/profile/:id',
         templateUrl: 'app/dash/profile/profile.html',
         controller: 'ProfileCtrl',
         controllerAs: 'vm',

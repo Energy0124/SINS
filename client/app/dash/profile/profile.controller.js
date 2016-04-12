@@ -7,10 +7,11 @@
       "Auth",
       "$stateParams",
       "$log",
+      "User",
       ProfileController
     ]);
 
-  function ProfileController($resource, Auth, $stateParams, $log, $scope) {
+  function ProfileController($resource, Auth, $stateParams, $log,User, $scope) {
     var vm = this;
     vm.user = Auth.getCurrentUser();
 

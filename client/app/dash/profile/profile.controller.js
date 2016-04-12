@@ -18,15 +18,15 @@
     $log.log($stateParams);
 
     //vm.id=
-     if ($stateParams.id == vm.user._id) {
-     vm.isSelf = true;
-     } else {
-     vm.isSelf = false;
-     }
+    if ($stateParams.id == vm.user._id) {
+      vm.isSelf = true;
+    } else {
+      vm.isSelf = false;
+    }
 
     if (vm.isSelf) {
       vm.friendText = "";
-    } else if (vm.user.friends.indexOf($stateParams.id ) == -1) {
+    } else if (vm.user.friends.indexOf($stateParams.id) == -1) {
       vm.friendText = "Add Friend";
     } else {
       vm.friendText = "Unfriend";

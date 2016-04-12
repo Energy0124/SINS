@@ -1,7 +1,6 @@
 // TODO: Add validations
 md-content.md-padding(md-theme='dark', layout='row', layout-sm='column')
 
-
 md-card
   md-card-title
     md-card-title-text
@@ -22,7 +21,21 @@ md-card
     md-button {{vm.friendText}}
     md-button Message
 
-md-content.md-padding
+div(ng-controller='ProfileCtrl', layout='column', style='height:600px', ng-cloak='')
+  md-toolbar(md-scroll-shrink='', ng-if='true')
+    .md-toolbar-tools
+      h3
+        span Friends
+  md-content(flex='')
+    md-list
+      md-list-item.md-3-line(ng-repeat='item in vm.user')
+        //img.md-avatar(ng-src='{{item.face}}', alt='{{item.who}}')
+        .md-list-item-text
+          h3 {{item}}
+          h4
+        md-divider(inset='')
+
+//md-content.md-padding
   form(name='userForm')
     div(layout='', layout-sm='column')
       md-input-container(flex='80')

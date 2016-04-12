@@ -12,22 +12,4 @@ angular.module('sinsApp')
         }
       });
   });
-
-function GameWikiEdit($scope){
-  $scope.content = "hey";
-  $scope.editEnabled = false;
-    
-  $scope.editGameWiki = function(){
-    $scope.editEnabled = true;
-    $scope.editableContent = $scope.content;
-  };
-    
-  $scope.cancelGameWiki = function(){
-    $scope.editEnabled = false;
-  };
-    
-  $scope.saveGameWiki = function(){
-    $scope.content = $scope.editableContent;
-    $scope.cancelGameWiki();
-  };
-}
+  

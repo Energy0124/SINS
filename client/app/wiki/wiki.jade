@@ -4,21 +4,19 @@ div(ng-cloak='')
       md-tab(label='Game Wiki')
         md-content.md-padding
           h1.md-display-2 Game Wiki
-          div(ng-controller="GameWikiEdit")
-            div(ng-hide="editEnabled")
-              P
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.
-              P
-                | {{content}}
-              md-button(class="md-raised" ng-click="editGameWiki" href="#")
+          div(ng-controller='WikiCtrl')
+            div(ng-hide='editEnabled')
+              P(style="width:70%")
+                {{GameWikiContent}}
+              md-button(class="md-raised" ng-click="editGameWiki()" href="#")
                 | Edit
-            div(ng-show="editEnabled")
-              input(ng-model="editableContent" ng-show="editEnabled")
-              md-button(class="md-raised" ng-click="saveGameWiki" href="#")
+            div(ng-show='editEnabled')
+              P
+                textarea(ng-model='editableContent' ng-show='editEnabled' rows='5' style='width:70%')
+              md-button(class="md-raised" ng-click="saveGameWiki()" href="#")
                 | Save
-               md-button(class="md-raised" ng-click="cancelGameWiki" href="#")
+              md-button(class="md-raised" ng-click="cancelGameWiki()" href="#")
                 | Cancel
-          
       md-tab(label='Game Platform API')
         md-content.md-padding
           h1.md-display-2 Game Platform API
@@ -28,6 +26,8 @@ div(ng-cloak='')
             | Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.
           p
             | Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.
+          md-button(class="md-raised" md-click="saveGameWiki()")
+            | Save
       md-tab(label='Developer Wiki')
         md-content.md-padding
           h1.md-display-2 Developer Wiki

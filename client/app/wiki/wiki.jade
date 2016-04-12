@@ -4,10 +4,21 @@ div(ng-cloak='')
       md-tab(label='Game Wiki')
         md-content.md-padding
           h1.md-display-2 Game Wiki
-          p
-            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.
-          md-button(class="md-raised")
-            | Button
+          div(ng-controller="GameWikiEdit")
+            div(ng-hide="editEnabled")
+              P
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.
+              P
+                | {{content}}
+              md-button(class="md-raised" ng-click="editGameWiki" href="#")
+                | Edit
+            div(ng-show="editEnabled")
+              input(ng-model="editableContent" ng-show="editEnabled")
+              md-button(class="md-raised" ng-click="saveGameWiki" href="#")
+                | Save
+               md-button(class="md-raised" ng-click="cancelGameWiki" href="#")
+                | Cancel
+          
       md-tab(label='Game Platform API')
         md-content.md-padding
           h1.md-display-2 Game Platform API

@@ -17,6 +17,7 @@
     vm.messages = [];
     vm.$http = $http;
     vm.user = Auth.getCurrentUser();
+    vm.Auth=Auth;
 
     //this.awesomeThings = [];
     vm.scrollToChatBottom = function () {
@@ -48,8 +49,8 @@
       if (vm.newMessage) {
         vm.$http.post('/api/messages', {
           text: vm.newMessage,
-          userName: vm.user.name,
-          imagePath: vm.user.imagePath
+          userName: vm.Auth.getCurrentUser().name,
+          imagePath: vm.Auth.getCurrentUser().imagePath
         });
         vm.newMessage = '';
       }

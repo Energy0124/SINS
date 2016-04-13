@@ -48,7 +48,7 @@ md-sidenav.md-whiteframe-z2.md-sidenav-right(layout='column',md-component-id='ri
           i.material-icons keyboard_arrow_down
         md-menu-content(width='3')
           md-menu-item
-            md-button(ng-click='$mdCloseMenu()', ui-sref='dash.profile({id: "{{Auth.getCurrentUser()._id}}"})') Profile
+            md-button(ng-click='$mdCloseMenu()', ui-sref='dash.profile({id: "{{vm.getCurrentUser()._id}}"})') Profile
           md-menu-item
             md-button(ng-click='$mdCloseMenu()', ui-sref='dash.settings') Setting
           md-menu-item

@@ -23,6 +23,7 @@
     vm.isLoggedIn = Auth.isLoggedIn;
     vm.isAdmin = Auth.isAdmin;
     vm.getCurrentUser = Auth.getCurrentUser;
+    vm.user=Auth.getCurrentUser();
 
 
     navService

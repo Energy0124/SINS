@@ -28,10 +28,10 @@ div(layout='column', flex='')
     md-button( ng-click='vm.toggleItemsList()', aria-label='Menu')
       i.material-icons menu
     span.flex(flex='')
-    md-button.toolbar-button( aria-label='Search')
+    //md-button.toolbar-button( aria-label='Search')
       i.material-icons search
     md-button.toolbar-button(aria-level='Login',ng-show='!vm.isLoggedIn()', ui-sref='dash.login') Login
-    md-button.toolbar-button( aria-label='Notifications',ng-show='vm.isLoggedIn()')
+    //md-button.toolbar-button( aria-label='Notifications',ng-show='vm.isLoggedIn()')
       i.material-icons notifications
       span.notifications-label 7
     md-button.toolbar-button( aria-label='Menu', ng-click='vm.toggleRightSidebar()',ng-show='vm.isLoggedIn()')
@@ -48,7 +48,7 @@ md-sidenav.md-whiteframe-z2.md-sidenav-right(layout='column',md-component-id='ri
           i.material-icons keyboard_arrow_down
         md-menu-content(width='3')
           md-menu-item
-            md-button(ng-click='$mdCloseMenu()', ui-sref='dash.profile({id: "{{vm.getCurrentUser()._id}}"})') Profile
+            md-button(ng-click='$mdCloseMenu()', ui-sref='dash.profile({id: vm.getCurrentUser()._id})') Profile
           md-menu-item
             md-button(ng-click='$mdCloseMenu()', ui-sref='dash.settings') Setting
           md-menu-item

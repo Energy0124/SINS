@@ -15,31 +15,36 @@
         sref: '.main'
       },
       {
+        name: 'Users',
+        icon: 'person',
+        sref: '.users'
+      },
+      /*{
         name: 'Dashboard',
         icon: 'dashboard',
         sref: '.dashboard'
-      },
+      },*/
 /*      {
         name: 'Profile',
         icon: 'person',
         sref: '.profile'
       },*/
 
-      {
+     /* {
         name: 'Lobby',
         icon: 'layers',
         sref: '.lobby'
-      },
+      },*/
       {
         name: 'Wiki',
         icon: 'info',
         sref: '.wiki'
       },
-      {
+     /* {
         name: 'Table',
         icon: 'view_module',
         sref: '.table'
-      }
+      }*/
 /*      {
         name: 'Admin',
         icon: 'help',

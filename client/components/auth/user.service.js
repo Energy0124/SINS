@@ -18,6 +18,9 @@
           id: 'me'
         }
       },
+      show: {
+        method: 'GET'
+      },
       'update': {method: 'PUT'}
     });
   }

@@ -54,12 +54,12 @@ export function create(req, res, next) {
 export function show(req, res, next) {
   var userId = req.params.id;
 
-  User.findByIdAsync(userId)
+  User.findByIdAsync(userId,'-salt -password')
     .then(user => {
       if (!user) {
         return res.status(404).end();
       }
-      res.json(user.profile);
+      res.json(user);
     })
     .catch(err => next(err));
 }

@@ -19,7 +19,7 @@
     //user
     $scope.isSelf = false;
     $log.log($stateParams);
-    User.get({_id: $stateParams.id}, function (user) {
+    User.show({id: $stateParams.id}, function (user) {
       //vm.user =user;
       $scope.user = user;
       /*User.get(function (me) {
@@ -39,14 +39,14 @@
         $scope.isSelf = false;
       }
 
-      if ($scope.isSelf) {
+      /*if ($scope.isSelf) {
         $scope.friendText = "";
       } else if ($scope.user.friends.indexOf($stateParams.id) == -1) {
         $scope.friendText = "Add Friend";
       } else {
         $scope.friendText = "Unfriend";
-      }
-      $scope.$apply();
+      }*/
+      //$scope.$apply();
 
     });
 

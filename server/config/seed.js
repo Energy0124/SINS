@@ -46,7 +46,10 @@ User.find({}).removeAsync()
         provider: 'local',
         name: 'Test User',
         email: 'test@example.com',
-        password: 'test'
+        password: 'test',
+        country: 'Hong Kong',
+        description: 'CSer no sleep!',
+        imagePath: 'https://s-media-cache-ak0.pinimg.com/736x/e1/27/83/e12783c0a483d800433e47db1c8d9f76.jpg'
       }, {
         provider: 'local',
         role: 'admin',

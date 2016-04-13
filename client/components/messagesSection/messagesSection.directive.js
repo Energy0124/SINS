@@ -14,9 +14,9 @@
         messages: '='
       },
       template: '' +
-      '<section>' +
-      '  <md-subheader ng-class="theme">{{title}}</md-subheader>' +
-      '  <md-list>' +
+      '<md-content flex>' +
+      /*'  <md-subheader ng-class="theme">{{title}}</md-subheader>' +*/
+      '  <md-list id="chat-md-list">' +
       '    <md-list-item class="md-3-line" ng-repeat="message in messages">' +
       '    <img class="md-avatar" ng-src="{{message.imagePath}}">' +
       '    <div class="md-list-item-text">' +
@@ -24,9 +24,10 @@
       '      <h3>{{message.userName}}</h3>' +
       '      <p>{{message.text}}</p>' +
       '    </div>' +
+      '    <md-divider>' +
       '    </md-list-item>' +
       '  </md-list>' +
-      '</section>',
+      '</md-content>',
       link : function(scope, element, attrs) {
       }
     };

@@ -1,11 +1,13 @@
-.messages(ng-controller='MessagesController as vm')
-  md-content.messages-content
+.message(ng-controller='MessagesController as vm', layout='column')
+  //section()
+  md-content.messages-content(flex='')
     messages-section(theme='md-accent', title='Public', messages='vm.messages')
-    //messages-section(theme='md-primary', title='Delivered', messages='vm.messages')
-    //messages-section(theme='md-warn', title='Problems reported', messages='vm.messages')
-    md-divider
-  section(layout='row')
-    md-input-container.md-block(flex=80)
+    //md-divider
+  //messages-section(theme='md-primary', title='Delivered', messages='vm.messages')
+  //messages-section(theme='md-warn', title='Problems reported', messages='vm.messages')
+  md-divider
+  section(layout='row',style='height: 10vh')
+    md-input-container.md-block(flex='80')
       label Message
       input(type='text', placeholder='Type your message here', ng-model='vm.newMessage')
     md-button(type='submit', ng-click='vm.addMessage()') Send

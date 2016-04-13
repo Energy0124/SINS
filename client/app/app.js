@@ -21,7 +21,7 @@ angular.module('sinsApp', [
   .config(function ($urlRouterProvider, $locationProvider, $mdThemingProvider,
                     $mdIconProvider) {
     $urlRouterProvider
-      .otherwise('/dashboard');
+      .otherwise('/main');
 
     $locationProvider.html5Mode(true);
 

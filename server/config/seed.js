@@ -7,6 +7,7 @@
 import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
 import Article from '../api/article/article.model';
+import Message from '../api/message/message.model';
 
 Thing.find({}).removeAsync()
   .then(() => {
@@ -38,6 +39,20 @@ Thing.find({}).removeAsync()
       info: 'Easily deploy your app to Heroku or Openshift with the heroku ' +
       'and openshift subgenerators'
     });
+  });
+
+Message.find({}).removeAsync()
+  .then(() => {
+    Message.create({
+        userName: 'Admin',
+        text: 'Hello world!',
+        imagePath: 'https://s-media-cache-ak0.pinimg.com/736x/e1/27/83/e12783c0a483d800433e47db1c8d9f76.jpg'
+      }, {
+        userName: 'Test',
+        text: 'Hello world!',
+        imagePath: 'https://s-media-cache-ak0.pinimg.com/736x/e1/27/83/e12783c0a483d800433e47db1c8d9f76.jpg'
+      }
+    );
   });
 
 User.find({}).removeAsync()

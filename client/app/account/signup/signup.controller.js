@@ -23,6 +23,7 @@ class SignupController {
       })
       .then(() => {
         // Account created, redirect to home
+        this.user=this.Auth.getCurrentUser();
         this.$state.go('dash.main');
       })
       .catch(err => {

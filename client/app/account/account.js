@@ -21,6 +21,7 @@ angular.module('sinsApp')
                           $state.current.referrer ||
                           'dash.main';
           Auth.logout();
+          //window.location.reload(true);
           $state.go(referrer);
         },
         data: {

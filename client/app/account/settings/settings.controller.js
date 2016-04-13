@@ -4,7 +4,6 @@ class SettingsController {
   constructor(Auth,User, Upload, $scope) {
     this.errors = {};
     this.submitted = false;
-
     this.Auth = Auth;
     this.User=User;
     this.user = Auth.getCurrentUser();

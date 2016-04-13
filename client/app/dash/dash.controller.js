@@ -3,7 +3,7 @@
   angular
     .module('sinsApp')
     .controller('DashCtrl', [
-      'navService', 'Auth', '$mdSidenav', '$mdMedia', '$mdBottomSheet', '$log', '$q', '$state', '$mdToast',
+      'navService', 'Auth', '$mdSidenav', '$mdMedia', '$mdBottomSheet', '$log', '$q', '$state', '$mdToast','$scope',
       DashController
     ]);
 
@@ -19,6 +19,7 @@
     vm.toggleRightSidebar = toggleRightSidebar;
     vm.isRightSidebarLockOpened = true;
     vm.isLeftSidebarLockOpened = true;
+    $scope.Auth=Auth;
     vm.isLoggedIn = Auth.isLoggedIn;
     vm.isAdmin = Auth.isAdmin;
     vm.getCurrentUser = Auth.getCurrentUser;
@@ -28,7 +29,7 @@
       .loadAllItems()
       .then(function (menuItems) {
         vm.menuItems = [].concat(menuItems);
-        
+
       });
 
 

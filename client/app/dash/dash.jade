@@ -5,7 +5,7 @@ script(type='text/javascript').
 md-sidenav.md-whiteframe-z2.md-sidenav-left(md-is-locked-open="$mdMedia('gt-md')&&vm.isLeftSidebarLockOpened", md-component-id='left')
   md-toolbar.md-hue-1.md-whiteframe-z2(md-theme='custom')
     md-button.md-toolbar-tools.md-warn(layout='row', layout-align='center center', ui-sref='.dashboard')
-      h1 AMD
+      h1 SINS
   md-button.capitalize(ng-repeat-start='item in vm.menuItems', layout='column', layout-align='center start', ng-click='vm.selectItem(item)', ui-sref-active='md-warn', ui-sref='{{item.sref}}')
     div(layout='row')
       .md-tile-content
@@ -48,7 +48,7 @@ md-sidenav.md-whiteframe-z2.md-sidenav-right(md-component-id='right', md-is-lock
           i.material-icons keyboard_arrow_down
         md-menu-content(width='3')
           md-menu-item
-            md-button(ng-click='$mdCloseMenu()', ui-sref='dash.profile({id: "{{vm.getCurrentUser()._id}}"})') Profile
+            md-button(ng-click='$mdCloseMenu()', ui-sref='dash.profile({id: "{{Auth.getCurrentUser()._id}}"})') Profile
           md-menu-item
             md-button(ng-click='$mdCloseMenu()', ui-sref='dash.settings') Setting
           md-menu-item

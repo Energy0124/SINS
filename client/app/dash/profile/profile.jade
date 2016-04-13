@@ -7,16 +7,19 @@ md-card()
       span.md-headline {{user.name}}
       table
         tr()
-          td Country
+          td
+            h4 Country
           td {{user.country}}
         tr()
-          td Description
+          td
+            h4 Description
+        tr
           td {{user.description}}
     md-card-title-media
       .md-media-lg.card-media
   md-card-actions(layout='row', layout-align='end center', ng-hide='isSelf')
-    md-button {{friendText}}
-    md-button Message
+    //md-button {{friendText}}
+    //md-button Message
 //md-card()
   div(layout='column')
     md-toolbar()

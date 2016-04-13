@@ -16,9 +16,11 @@ var UserSchema = new Schema({
     type: String,
     default: 'user'
   },
+  imagePath: String,
   password: String,
   country: String,
   introduction: String,
+  description: String,
   age: Number,
   gender: String,
   level: Number,

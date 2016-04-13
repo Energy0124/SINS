@@ -1,12 +1,14 @@
 'use strict';
 
 class SettingsController {
-  constructor(Auth,$scope) {
+  constructor(Auth,User, Upload, $scope) {
     this.errors = {};
     this.submitted = false;
 
     this.Auth = Auth;
-    this.user=Auth.getCurrentUser();
+    this.User=User;
+    this.user = Auth.getCurrentUser();
+    this.file={};
     $scope.countries = [
       {name: 'Afghanistan', code: 'AF'},
       {name: 'Åland Islands', code: 'AX'},
@@ -252,8 +254,31 @@ class SettingsController {
       {name: 'Zambia', code: 'ZM'},
       {name: 'Zimbabwe', code: 'ZW'}
     ];
+    this.Upload=Upload;
+    this.progress='';
 
   }
+
+  upload(file) {
+    this.Upload.upload({
+      url: '/upload', //webAPI exposed to upload the file
+      data: {file: file} //pass file as data, should be user ng-model
+    }).then(function (resp) { //upload function returns a promise
+      if (resp.data.error_code === 0) { //validate success
+        //$window.alert('Success ' + resp.config.data.file.name + 'uploaded. Response: ');
+      } else {
+        //$window.alert('an error occured');
+      }
+    }, function (resp) { //catch error
+      console.log('Error status: ' + resp.status);
+      //$window.alert('Error status: ' + resp.status);
+    }, function (evt) {
+      console.log(evt);
+      var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+      console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+      //this.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
+    });
+  };
 
   changePassword(form) {
     this.submitted = true;
@@ -273,7 +298,30 @@ class SettingsController {
 
   changeProfile(form) {
     this.submitted = true;
-
+    /*if (this.file) { //check if from is valid
+      this.upload(this.file); //call upload function
+    }*/
+    if (true) {
+      this.User.update( {id: this.user._id},this.user);
+      this.message = 'Profile successfully updated.';
+       /* .then(() => {
+          this.message = 'Profile successfully updated.';
+        })
+        .catch(() => {
+         // form.password.$setValidity('mongoose', false);
+          //this.errors.other = 'Incorrect password';
+          this.message = 'Error updating profile';
+        });*/
+     /* this.Auth.changePassword(this.user.oldPassword, this.user.newPassword)
+        .then(() => {
+          this.message = 'Password successfully changed.';
+        })
+        .catch(() => {
+          form.password.$setValidity('mongoose', false);
+          this.errors.other = 'Incorrect password';
+          this.message = '';
+        });*/
+    }
 
   }
 }

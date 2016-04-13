@@ -15,6 +15,7 @@ angular.module('sinsApp', [
     'ngMessages',
     'ngAnimate',
     'textAngular',
+    'ngFileUpload',
     'nvd3'
   ])
   .config(function ($urlRouterProvider, $locationProvider, $mdThemingProvider,

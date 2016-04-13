@@ -42,6 +42,7 @@ module.exports = function(config) {
       'client/bower_components/textAngular/dist/textAngular.js',
       'client/bower_components/textAngular/dist/textAngular-sanitize.js',
       'client/bower_components/textAngular/dist/textAngularSetup.js',
+      'client/bower_components/ng-file-upload/ng-file-upload.js',
       // endbower
       'node_modules/socket.io-client/socket.io.js',
       'client/app/app.js',

@@ -7,14 +7,14 @@ import jwt from 'jsonwebtoken';
 
 function validationError(res, statusCode) {
   statusCode = statusCode || 422;
-  return function(err) {
+  return function (err) {
     res.status(statusCode).json(err);
   }
 }
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
-  return function(err) {
+  return function (err) {
     res.status(statusCode).send(err);
   };
 }
@@ -39,11 +39,11 @@ export function create(req, res, next) {
   newUser.provider = 'local';
   newUser.role = 'user';
   newUser.saveAsync()
-    .spread(function(user) {
-      var token = jwt.sign({ _id: user._id }, config.secrets.session, {
+    .spread(function (user) {
+      var token = jwt.sign({_id: user._id}, config.secrets.session, {
         expiresIn: 60 * 60 * 5
       });
-      res.json({ token });
+      res.json({token});
     })
     .catch(validationError(res));
 }
@@ -70,7 +70,7 @@ export function show(req, res, next) {
  */
 export function destroy(req, res) {
   User.findByIdAndRemoveAsync(req.params.id)
-    .then(function() {
+    .then(function () {
       res.status(204).end();
     })
     .catch(handleError(res));
@@ -105,7 +105,7 @@ export function changePassword(req, res, next) {
 export function me(req, res, next) {
   var userId = req.user._id;
 
-  User.findOneAsync({ _id: userId }, '-salt -password')
+  User.findOneAsync({_id: userId}, '-salt -password')
     .then(user => { // don't ever give out the password or salt
       if (!user) {
         return res.status(401).end();
@@ -113,6 +113,34 @@ export function me(req, res, next) {
       res.json(user);
     })
     .catch(err => next(err));
+}
+
+// Updates an existing User in the DB
+export function update(req, res) {
+  //var updatedUser = req.user;
+  var updatedUser =req.body;
+  console.log(req.body);
+  // var oldPass = String(req.body.oldPassword);
+  //var newPass = String(req.body.newPassword);
+
+  User.findByIdAsync(updatedUser._id)
+    .then(user => {
+      if (user) {
+        //user.password = newPass;
+        user.name = updatedUser.name;
+        user.country = updatedUser.country;
+        user.description = updatedUser.description;
+        user.imagePath = updatedUser.imagePath;
+        console.log(user);
+        return user.saveAsync()
+          .then(() => {
+            res.status(204).end();
+          })
+          .catch(validationError(res));
+      } else {
+        return res.status(403).end();
+      }
+    });
 }
 
 /**

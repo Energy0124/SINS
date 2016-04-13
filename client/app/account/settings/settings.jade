@@ -5,21 +5,29 @@ div(ng-cloak='')
         md-content.md-padding
           h1.md-display-2 Change Profile
           div
-              form.form(name='form', ng-submit='vm.changeProfile(form)')
+              form.form(name='profileForm', ng-submit='vm.changeProfile(form)')
                 md-input-container.md-block()
                   label Name
                   input(type='text',required='', name='name', ng-model='vm.user.name')
                   div(ng-messages='form.name.$error')
                     div(ng-message="required") A name is required
                 md-input-container.md-block()
+                  label Profile Picture Path
+                  input(type='text', name='imagePath', ng-model='vm.user.imagePath')
+                md-input-container.md-block()
+                  label Country
+                  md-select(ng-model='vm.user.country')
+                    md-option(ng-repeat='c in countries', value='{{c.name}}')
+                      | {{c.name}}
+                //md-input-container.md-block()
                   span Country:
                   select(ng-model='country', ng-options='country.name for country in countries track by country.code')
                     option(value='') -- Select a Country --
                 md-input-container.md-block()
                   label Description
-                  textarea(ng-model='vm.user.introduction', md-maxlength='150', rows='5', md-select-on-focus='')
+                  textarea(ng-model='vm.user.description', md-maxlength='150', rows='5', md-select-on-focus='')
+                p.help-block  {{ vm.message }}
                 md-button.md-raised(type='submit') Save changes
-
       md-tab(label='change password')
         md-content.md-padding
           h1.md-display-2 Change Password

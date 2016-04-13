@@ -53,6 +53,9 @@ User.find({}).removeAsync()
         name: 'Admin',
         email: 'admin@example.com',
         password: 'admin',
+        country: 'Hong Kong',
+        description: 'I love Touhou Project!',
+        imagePath: 'https://media.giphy.com/media/3ornjHgZHMljdazdUk/giphy.gif',
         level: 99
       })
       .then(() => {

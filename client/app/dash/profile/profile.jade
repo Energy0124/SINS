@@ -16,7 +16,7 @@ md-card()
         tr
           td {{user.description}}
     md-card-title-media
-      .md-media-lg.card-media
+        img.md-media-lg.card-media(ng-src='{{user.imagePath}}')
   md-card-actions(layout='row', layout-align='end center', ng-hide='isSelf')
     //md-button {{friendText}}
     //md-button Message

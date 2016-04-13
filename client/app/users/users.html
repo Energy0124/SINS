@@ -1,5 +1,13 @@
 <div layout="column">
-  <md-card ng-repeat="user in users" class="user-listing">
+  <md-input-container class="md-icon-float md-block">
+    <!-- Use floating label instead of placeholder -->
+    <label>Search</label>
+    <md-icon class="material-icons">search</md-icon>
+    <!--<i class="material-icons"> search</i>-->
+    <input ng-model="query" type="text">
+  </md-input-container>
+  <md-divider></md-divider>
+  <md-card ng-repeat="user in users|filter: query" class="user-listing">
     <md-card-title>
       <md-card-title-text>
         <span class="md-headline" ui-sref='dash.profile({id: "{{user._id}}"})'>{{user.name}}</span>
@@ -10,9 +18,9 @@
       </md-card-title-media>
     </md-card-title>
 
-   <!-- <md-card-actions layout="row" layout-align="end center">
-      <md-button>Action 1</md-button>
-      <md-button>Action 2</md-button>
-    </md-card-actions>-->
+    <!-- <md-card-actions layout="row" layout-align="end center">
+       <md-button>Action 1</md-button>
+       <md-button>Action 2</md-button>
+     </md-card-actions>-->
   </md-card>
 </div>

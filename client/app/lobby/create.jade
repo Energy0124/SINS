@@ -1,0 +1,23 @@
+md-content
+  div
+    div
+      h1 Create a lobby
+    div
+      form(name='form', ng-submit='vm.create(form)')
+        md-input-container.md-block()
+          label Lobby Name
+          input(type='text',required='', name='name', ng-model='vm.user.name')
+          div(ng-messages='form.name.$error')
+            div(ng-message="required") A name is required
+
+
+        section(layout='row')
+          md-button.md-raised(type='submit')
+            | Create
+          md-button.md-raised(ui-sref='dash.login')
+            | Back
+
+        hr
+
+
+  hr

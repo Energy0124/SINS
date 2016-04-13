@@ -31,6 +31,7 @@ class LoginController {
         //this.$log.log(err);
       });
     }
+    
   }
 }
 

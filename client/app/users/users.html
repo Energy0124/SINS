@@ -10,11 +10,11 @@
   <md-card ng-repeat="user in users|filter: query" class="user-listing">
     <md-card-title>
       <md-card-title-text>
-        <span class="md-headline" ui-sref='dash.profile({id: "{{user._id}}"})'>{{user.name}}</span>
+        <span class="md-headline" ui-sref='dash.profile({id: user._id})'>{{user.name}}</span>
         <span class="md-subhead">{{user.description}}</span>
       </md-card-title-text>
       <md-card-title-media>
-        <img class="md-media-lg card-media" ng-src="{{user.imagePath}}">
+        <img class="md-media-lg card-media" ui-sref='dash.profile({id: user._id})' ng-src="{{user.imagePath}}">
       </md-card-title-media>
     </md-card-title>
 

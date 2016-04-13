@@ -22,7 +22,7 @@
       '    <div class="md-list-item-text">' +
       /*'      <h3>{{message.subject}}</h3>' +*/
       '      <h3>{{message.userName}}</h3>' +
-      '      <p>{{message.text}}</p>' +
+      '      <p style="width:200px;word-break: break-all;">{{message.text}}</p>' +
       '    </div>' +
       '    <md-divider>' +
       '    </md-list-item>' +

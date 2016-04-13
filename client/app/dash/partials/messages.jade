@@ -6,7 +6,7 @@
   //messages-section(theme='md-primary', title='Delivered', messages='vm.messages')
   //messages-section(theme='md-warn', title='Problems reported', messages='vm.messages')
   md-divider
-  section(layout='row',style='height: 10vh')
+  form(name='chatForm', layout='row',style='height: 10vh')
     md-input-container.md-block(flex='80')
       label Message
       input(type='text', placeholder='Type your message here', ng-model='vm.newMessage')

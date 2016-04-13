@@ -60,7 +60,16 @@ User.find({}).removeAsync()
         description: 'I love Touhou Project!',
         imagePath: 'https://media.giphy.com/media/3ornjHgZHMljdazdUk/giphy.gif',
         level: 99
-      })
+      }, {
+        provider: 'local',
+        role: 'admin',
+        name: 'Real Admin',
+        email: 'realadmin@example.com',
+        password: 'realadmin',
+        country: 'Hong Kong',
+        description: 'Inori is the best!',
+        imagePath: 'https://49.media.tumblr.com/7b94c50cf9485cb3e848709bba2e6a03/tumblr_ngda64EKr61sg9gi2o1_500.gif',
+    })
       .then(() => {
         console.log('finished populating users');
       });

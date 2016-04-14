@@ -10,13 +10,13 @@
   <md-card ng-repeat="game in games|filter: query" class="user-listing">
     <md-card-title>
       <md-card-title-text>
-        <span class="md-headline" ng-href={{game.path}}>{{game.name}}</span>
+        <span class="md-headline" ui-sref='{{game.inPath}}'>{{game.name}}</span>
         <span class="md-subhead">{{game.tags}}</span>
         <span class="md-subhead">{{game.description}}</span>
         <a class="md-subhead" ng-href={{game.path}}>{{game.path}}</a>
       </md-card-title-text>
       <md-card-title-media>
-        <img class="md-media-xl card-media" href="{{game.path}}" ng-src="{{game.imagePath}}">
+        <img class="md-media-xl card-media" ui-sref="{{game.inPath}}" ng-src="{{game.imagePath}}">
       </md-card-title-media>
     </md-card-title>
 

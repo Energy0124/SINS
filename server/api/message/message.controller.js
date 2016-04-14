@@ -61,7 +61,7 @@ function handleError(res, statusCode) {
 
 // Gets a list of Messages
 export function index(req, res) {
-  return Message.find().exec()
+  return Message.find().sort({_id:-1}).limit(50).sort({_id:1}).exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }

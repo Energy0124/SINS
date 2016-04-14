@@ -13,6 +13,7 @@ var GameSchema = new mongoose.Schema({
   tags: String,
   description: String,
   path: String,
+  inPath: String,
   imagePath: String,
   active: Boolean
 });

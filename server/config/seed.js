@@ -83,7 +83,7 @@ User.find({}).removeAsync()
         password: 'realadmin',
         country: 'Hong Kong',
         description: 'Inori is the best!',
-        imagePath: 'https://49.media.tumblr.com/7b94c50cf9485cb3e848709bba2e6a03/tumblr_ngda64EKr61sg9gi2o1_500.gif',
+        imagePath: 'https://49.media.tumblr.com/7b94c50cf9485cb3e848709bba2e6a03/tumblr_ngda64EKr61sg9gi2o1_500.gif'
     })
       .then(() => {
         console.log('finished populating users');

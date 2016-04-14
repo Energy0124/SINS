@@ -10,8 +10,10 @@ var GameSchema = new mongoose.Schema({
   rateCount: Number,
   rating:Number,
   genres:[String],
-  tags: [String],
+  tags: String,
   description: String,
+  path: String,
+  imagePath: String,
   active: Boolean
 });
 

@@ -1,12 +1,51 @@
 md-content
-  p
-    | The delete user and user index api routes are restricted to users with the 'admin' role.
-  md-list
-    md-list-item(ng-repeat='user in admin.users')
-      .md-list-item-text(layout='column')
-        strong {{user.name}}
-        div(layout='row')
-          span.text-muted {{user.email}}
-          a.trash(ng-click='admin.delete(user)')
-            span.glyphicon.glyphicon-trash.pull-right
-        md-divider
+  md-tabs(md-dynamic-height='', md-border-bottom='')
+    md-tab(label='User Management')
+      md-content.md-padding
+        md-content
+          p
+            | The delete user and user index api routes are restricted to users with the 'admin' role.
+          md-list
+            md-list-item(ng-repeat='user in admin.users')
+              .md-list-item-text(layout='column')
+                strong {{user.name}}
+                div(layout='row')
+                  span.text-muted {{user.email}}
+                  a.trash(ng-click='admin.delete(user)')
+                    span.glyphicon.glyphicon-trash.pull-right
+                md-divider
+    md-tab(label='Game Management')
+      md-content.md-padding
+        md-content
+          form.form(name='form', ng-submit='admin.addGame(form)')
+            md-input-container.md-block()
+              label Name
+              input(type='text',required='', name='name', ng-model='admin.game.name')
+              div(ng-messages='form.name.$error')
+                div(ng-message="required") A name is required
+            md-input-container.md-block()
+              label Tags
+              input(type='text', name='tags', ng-model='admin.game.tags')
+            md-input-container.md-block()
+              label Game Path
+              input(type='text', name='path', ng-model='admin.game.path')
+            md-input-container.md-block()
+              label Game Image Path
+              input(type='text', name='imagePath', ng-model='admin.game.imagePath')
+            //md-input-container.md-block()
+              label Country
+              md-select(ng-model='vm.user.country')
+                md-option(ng-repeat='c in countries', value='{{c.name}}')
+                  | {{c.name}}
+            //md-input-container.md-block()
+              span Country:
+              select(ng-model='country', ng-options='country.name for country in countries track by country.code')
+                option(value='') -- Select a Country --
+            md-input-container.md-block()
+              label Description
+              textarea(ng-model='admin.game.description', md-select-on-focus='')
+            //md-button.md-raised.trash(ng-click='admin.deleteGame(game)')
+              span.glyphicon.glyphicon-trash.pull-right
+            p.help-block  {{ admin.message }}
+            md-button.md-raised(type='submit') Save changes
+

@@ -15,6 +15,11 @@
         sref: '.main'
       },
       {
+        name: 'Games',
+        icon: 'extension',
+        sref: '.game'
+      },
+      {
         name: 'Users',
         icon: 'person',
         sref: '.users'

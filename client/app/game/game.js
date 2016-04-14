@@ -3,9 +3,13 @@
 angular.module('sinsApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('game', {
+      .state('dash.game', {
         url: '/game',
         templateUrl: 'app/game/game.html',
-        controller: 'GameCtrl'
+        controller: 'GameCtrl',
+        controllerAs: 'vm',
+        data: {
+          title: 'Games'
+        }
       });
   });

@@ -8,6 +8,18 @@ import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
 import Article from '../api/article/article.model';
 import Message from '../api/message/message.model';
+import Game from '../api/game/game.model';
+
+Game.find({}).removeAsync()
+  .then(() => {
+    Game.create({
+        name: 'Bullet Hell Game',
+        tags: 'shooting, bullet hell',
+        description: 'This is a bullet hell shooting game created with Unity 5',
+        imagePath: 'https://theskb.files.wordpress.com/2015/12/touhou.gif'
+      }
+    );
+  });
 
 Thing.find({}).removeAsync()
   .then(() => {
@@ -46,10 +58,10 @@ Message.find({}).removeAsync()
     Message.create({
         userName: 'Admin',
         text: 'Hello world!',
-        imagePath: 'https://s-media-cache-ak0.pinimg.com/736x/e1/27/83/e12783c0a483d800433e47db1c8d9f76.jpg'
+        imagePath: 'https://media.giphy.com/media/3ornjHgZHMljdazdUk/giphy.gif'
       }, {
-        userName: 'Test',
-        text: 'Hello world!',
+        userName: 'Touhou Lover',
+        text: 'I love bullet hell!',
         imagePath: 'https://s-media-cache-ak0.pinimg.com/736x/e1/27/83/e12783c0a483d800433e47db1c8d9f76.jpg'
       }
     );
@@ -59,9 +71,9 @@ User.find({}).removeAsync()
   .then(() => {
     User.createAsync({
         provider: 'local',
-        name: 'Test User',
+        name: 'CSer',
         email: 'test@example.com',
-        password: 'test',
+        password: 'testtest',
         country: 'Hong Kong',
         description: 'CSer no sleep!',
         imagePath: 'https://s-media-cache-ak0.pinimg.com/736x/e1/27/83/e12783c0a483d800433e47db1c8d9f76.jpg'
@@ -70,7 +82,7 @@ User.find({}).removeAsync()
         role: 'admin',
         name: 'Admin',
         email: 'admin@example.com',
-        password: 'admin',
+        password: 'adminadmin',
         country: 'Hong Kong',
         description: 'I love Touhou Project!',
         imagePath: 'https://media.giphy.com/media/3ornjHgZHMljdazdUk/giphy.gif',
@@ -84,7 +96,7 @@ User.find({}).removeAsync()
         country: 'Hong Kong',
         description: 'Inori is the best!',
         imagePath: 'https://49.media.tumblr.com/7b94c50cf9485cb3e848709bba2e6a03/tumblr_ngda64EKr61sg9gi2o1_500.gif'
-    })
+      })
       .then(() => {
         console.log('finished populating users');
       });
@@ -96,6 +108,6 @@ Article.find({}).removeAsync()
         info: "Testing Game wiki"
       })
       .then(() => {
-        console.log('finished populating users');
+        console.log('finished populating wiki');
       });
   });

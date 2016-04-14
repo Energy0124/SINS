@@ -14,13 +14,22 @@ Game.find({}).removeAsync()
   .then(() => {
     Game.create({
         name: 'Bullet Hell Game',
-        tags: 'shooting, bullet hell',
+        tags: 'shooting, bullet hell, 2D',
         description: 'This is a bullet hell shooting game created with Unity 5',
+        path: 'https://dl.dropboxusercontent.com/u/51841719/Games/BulletHell/index.html',
+        inPath: 'dash.main',
         imagePath: 'https://theskb.files.wordpress.com/2015/12/touhou.gif'
+      },
+      {
+        name: 'No Dream No Life',
+        tags: 'platformer, 2D',
+        description: 'This is a 2D platformer game created with Unity 4 with a lovely story',
+        path: 'https://dl.dropboxusercontent.com/u/51841719/Games/NDNL/v1.0.1.html',
+        imagePath: 'https://i.ytimg.com/vi/KKAchj2vEek/hqdefault.jpg'
       }
     );
   });
-
+//https://dl.dropboxusercontent.com/u/51841719/Games/NDNL/v1.0.1.html
 Thing.find({}).removeAsync()
   .then(() => {
     Thing.create({

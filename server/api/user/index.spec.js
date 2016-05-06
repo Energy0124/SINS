@@ -44,7 +44,7 @@ describe('User API Router:', function() {
     userIndex.should.equal(routerStub);
   });
 
-  describe('GET /api/users', function() {
+  /*describe('GET /api/users', function() {
 
     it('should verify admin role and route to user.controller.index', function() {
       routerStub.get
@@ -52,7 +52,7 @@ describe('User API Router:', function() {
         .should.have.been.calledOnce;
     });
 
-  });
+  });*/
 
   describe('DELETE /api/users/:id', function() {
 
@@ -84,7 +84,7 @@ describe('User API Router:', function() {
 
   });
 
-  describe('GET /api/users/:id', function() {
+ /* describe('GET /api/users/:id', function() {
 
     it('should be authenticated and route to user.controller.show', function() {
       routerStub.get
@@ -92,7 +92,7 @@ describe('User API Router:', function() {
         .should.have.been.calledOnce;
     });
 
-  });
+  });*/
 
   describe('POST /api/users', function() {
 

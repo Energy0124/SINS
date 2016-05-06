@@ -30,7 +30,7 @@ describe('Game API:', function() {
 
   });
 
-  describe('POST /api/games', function() {
+/*  describe('POST /api/games', function() {
     beforeEach(function(done) {
       request(app)
         .post('/api/games')
@@ -54,9 +54,9 @@ describe('Game API:', function() {
       newGame.info.should.equal('This is the brand new game!!!');
     });
 
-  });
+  });*/
 
-  describe('GET /api/games/:id', function() {
+  /*describe('GET /api/games/:id', function() {
     var game;
 
     beforeEach(function(done) {
@@ -82,9 +82,9 @@ describe('Game API:', function() {
       game.info.should.equal('This is the brand new game!!!');
     });
 
-  });
+  });*/
 
-  describe('PUT /api/games/:id', function() {
+  /*describe('PUT /api/games/:id', function() {
     var updatedGame;
 
     beforeEach(function(done) {
@@ -114,9 +114,9 @@ describe('Game API:', function() {
       updatedGame.info.should.equal('This is the updated game!!!');
     });
 
-  });
+  });*/
 
-  describe('DELETE /api/games/:id', function() {
+  /*describe('DELETE /api/games/:id', function() {
 
     it('should respond with 204 on successful removal', function(done) {
       request(app)
@@ -142,6 +142,6 @@ describe('Game API:', function() {
         });
     });
 
-  });
+  });*/
 
 });

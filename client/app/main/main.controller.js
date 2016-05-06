@@ -4,21 +4,23 @@
 
 class MainController {
 
-  constructor($http, $scope, socket) {
+  constructor($http, $scope, socket,$log,$mdMedia) {
     this.$http = $http;
     this.awesomeThings = [];
+    //$log.log($mdMedia("gt-sm"));
+    $scope.$mdMedia=$mdMedia;
 
-    $http.get('/api/things').then(response => {
+    /*$http.get('/api/things').then(response => {
       this.awesomeThings = response.data;
       socket.syncUpdates('thing', this.awesomeThings);
     });
 
     $scope.$on('$destroy', function() {
       socket.unsyncUpdates('thing');
-    });
+    });*/
   }
 
-  addThing() {
+ /* addThing() {
     if (this.newThing) {
       this.$http.post('/api/things', { name: this.newThing });
       this.newThing = '';
@@ -27,7 +29,7 @@ class MainController {
 
   deleteThing(thing) {
     this.$http.delete('/api/things/' + thing._id);
-  }
+  }*/
 }
 
 angular.module('sinsApp')

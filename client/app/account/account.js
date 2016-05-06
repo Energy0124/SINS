@@ -1,5 +1,6 @@
 'use strict';
 
+//router for login related function
 angular.module('sinsApp')
   .config(function($stateProvider) {
     $stateProvider

@@ -1,3 +1,4 @@
+//Handle the sending email for password reset
 //sinsisnotsteam@gmail.com
 //sinsgames
 import User from '../api/user/user.model';

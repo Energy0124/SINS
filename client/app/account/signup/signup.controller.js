@@ -1,5 +1,6 @@
 'use strict';
 
+//handle account register
 class SignupController {
   //start-non-standard
   user = {};

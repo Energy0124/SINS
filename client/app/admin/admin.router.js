@@ -1,5 +1,6 @@
 'use strict';
 
+//routing for admin page
 angular.module('sinsApp.admin')
   .config(function($stateProvider) {
     $stateProvider

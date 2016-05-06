@@ -1,5 +1,6 @@
 'use strict';
 
+//handle account setting
 class SettingsController {
   constructor(Auth,User, Upload, $scope) {
     this.errors = {};

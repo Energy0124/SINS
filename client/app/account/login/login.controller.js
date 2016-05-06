@@ -1,5 +1,5 @@
 'use strict';
-
+//handle login
 class LoginController {
   constructor(Auth, $state,$log,$http, $cookies,$scope) {
     this.user = {};

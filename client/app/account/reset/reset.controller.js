@@ -1,5 +1,6 @@
 'use strict';
 
+//handle reset password
 class ResetController {
   //start-non-standard
   user = {};

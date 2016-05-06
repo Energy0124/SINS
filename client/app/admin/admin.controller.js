@@ -1,5 +1,6 @@
 'use strict';
 
+//handle the user and games administration
 (function () {
 
   class AdminController {
